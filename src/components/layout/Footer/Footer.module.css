@@ -1,0 +1,175 @@
+.footer {
+    background: linear-gradient(180deg, var(--color-primary-900) 0%, #152912 100%);
+    color: var(--color-white);
+    padding: var(--spacing-16) 0 var(--spacing-8);
+}
+
+.footerContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-12);
+}
+
+.footerMain {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--spacing-12);
+}
+
+/* Brand Section */
+.footerBrand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    text-decoration: none;
+}
+
+.logoIcon {
+    font-size: var(--font-size-2xl);
+}
+
+.logoText {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-white);
+    letter-spacing: 1px;
+}
+
+.brandDescription {
+    color: var(--color-gray-400);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    max-width: 300px;
+}
+
+.socialLinks {
+    display: flex;
+    gap: var(--spacing-3);
+    margin-top: var(--spacing-2);
+}
+
+.socialLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-full);
+    color: var(--color-white);
+    transition: all var(--transition-fast);
+}
+
+.socialLink:hover {
+    background: var(--color-primary-500);
+    transform: translateY(-3px);
+}
+
+/* Footer Links */
+.footerLinks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-8);
+}
+
+.footerColumn {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+}
+
+.columnTitle {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-white);
+    margin-bottom: var(--spacing-2);
+}
+
+.linkList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+}
+
+.footerLink {
+    color: var(--color-gray-400);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    transition: color var(--transition-fast);
+}
+
+.footerLink:hover {
+    color: var(--color-primary-300);
+}
+
+.footerText {
+    color: var(--color-gray-400);
+    font-size: var(--font-size-sm);
+}
+
+/* Schedule Items */
+.scheduleItem {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+}
+
+.scheduleDay {
+    color: var(--color-gray-300);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+}
+
+.scheduleTime {
+    color: var(--color-gray-500);
+    font-size: var(--font-size-sm);
+}
+
+/* Contact Items */
+.contactItem {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-2);
+}
+
+.contactIcon {
+    font-size: var(--font-size-sm);
+}
+
+/* Footer Bottom */
+.footerBottom {
+    padding-top: var(--spacing-8);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.copyright {
+    color: var(--color-gray-500);
+    font-size: var(--font-size-sm);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .footerMain {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-8);
+    }
+
+    .footerLinks {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .footerLinks {
+        grid-template-columns: 1fr;
+    }
+}

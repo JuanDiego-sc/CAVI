@@ -1,0 +1,242 @@
+.contact {
+    background: var(--color-white);
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--spacing-8);
+    align-items: start;
+}
+
+/* Form Card */
+.formCard {
+    background: var(--color-white);
+}
+
+.formTitle {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-6);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-5);
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-4);
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+}
+
+.label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+}
+
+.input {
+    padding: var(--spacing-3) var(--spacing-4);
+    border: 2px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+    background: var(--color-white);
+    transition: all var(--transition-fast);
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--color-primary-500);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.input::placeholder {
+    color: var(--color-gray-400);
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.successMessage {
+    background: var(--color-primary-50);
+    border: 1px solid var(--color-primary-200);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-4);
+    color: var(--color-primary-700);
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+}
+
+/* Info Section */
+.infoSection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+}
+
+.infoCard {
+    background: var(--color-off-white);
+}
+
+.infoTitle {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-4);
+}
+
+.infoList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+}
+
+.infoItem {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-3);
+}
+
+.infoIcon {
+    font-size: var(--font-size-xl);
+}
+
+.infoLabel {
+    display: block;
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: var(--spacing-1);
+}
+
+.infoValue {
+    display: block;
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+    text-decoration: none;
+}
+
+a.infoValue:hover {
+    color: var(--color-primary-600);
+}
+
+/* Schedule */
+.scheduleList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+}
+
+.scheduleItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: var(--spacing-2);
+    border-bottom: 1px solid var(--color-gray-200);
+}
+
+.scheduleItem:last-child {
+    border-bottom: none;
+}
+
+.scheduleDay {
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+}
+
+.scheduleTime {
+    color: var(--color-primary-600);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Emergency Card */
+.emergencyCard {
+    background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-700) 100%);
+    color: var(--color-white);
+}
+
+.emergencyContent {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-4);
+}
+
+.emergencyIcon {
+    font-size: var(--font-size-3xl);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.emergencyTitle {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-white);
+    margin-bottom: var(--spacing-1);
+}
+
+.emergencyText {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--spacing-2);
+}
+
+.emergencyPhone {
+    display: inline-block;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-white);
+    text-decoration: none;
+    padding: var(--spacing-2) var(--spacing-4);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.emergencyPhone:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .infoSection {
+        order: -1;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-4);
+    }
+
+    .emergencyCard {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 640px) {
+    .formRow {
+        grid-template-columns: 1fr;
+    }
+
+    .infoSection {
+        grid-template-columns: 1fr;
+    }
+
+    .emergencyCard {
+        grid-column: span 1;
+    }
+}
