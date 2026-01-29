@@ -14,6 +14,9 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
     centered = true,
     light = false,
 }) => {
+    // Debug visual
+    // console.log('Rendering SectionTitle', { title, subtitle });
+
     return (
         <div className={`${styles.container} ${centered ? styles.centered : ''} ${light ? styles.light : ''}`}>
             {subtitle && <span className={styles.subtitle}>{subtitle}</span>}

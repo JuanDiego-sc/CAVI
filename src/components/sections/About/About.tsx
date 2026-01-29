@@ -10,8 +10,8 @@ export const About = () => {
                     <div className={styles.imageSection}>
                         <div className={styles.imageContainer}>
                             <img
-                                src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=800&q=80"
-                                alt="Veterinario con ave exótica"
+                                src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=800&q=80"
+                                alt="Loro colorido - Fauna silvestre"
                                 className={styles.mainImage}
                             />
                             <div className={styles.floatingCard}>

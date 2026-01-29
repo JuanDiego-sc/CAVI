@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
 @import './variables.css';
 
-/* CSS Reset */
+/* CSS Reset Mejorado */
 *,
 *::before,
 *::after {
@@ -12,8 +12,12 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-height) + var(--spacing-4));
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%; /* Previene zoom automático en iOS */
+    text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
 }
 
 body {
@@ -23,6 +27,11 @@ body {
     color: var(--color-text-primary);
     background-color: var(--color-white);
     overflow-x: hidden;
+    min-height: 100vh;
+    min-height: 100dvh; /* Soporte para dynamic viewport height (móviles) */
+    position: relative;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Typography Defaults */
@@ -73,6 +82,8 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
+    border-style: none; /* Remueve borde en IE */
+    -ms-interpolation-mode: bicubic; /* Mejora calidad en IE */
 }
 
 ul,
@@ -85,12 +96,40 @@ button {
     cursor: pointer;
     border: none;
     background: none;
+    -webkit-appearance: button; /* Normaliza apariencia en Safari */
+    appearance: button;
+}
+
+button::-moz-focus-inner {
+    border: 0; /* Remueve borde interno en Firefox */
+    padding: 0;
 }
 
 input,
-textarea {
+textarea,
+select {
     font-family: inherit;
     font-size: inherit;
+    line-height: inherit;
+    margin: 0;
+}
+
+/* Normaliza inputs en iOS */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Previene zoom en inputs en iOS */
+@media screen and (max-width: 768px) {
+    input,
+    select,
+    textarea {
+        font-size: 16px; /* Mínimo 16px previene zoom en iOS */
+    }
 }
 
 /* Selection */
@@ -105,9 +144,10 @@ textarea {
     outline-offset: 2px;
 }
 
-/* Scrollbar Styling */
+/* Scrollbar Styling - Con soporte cross-browser */
 ::-webkit-scrollbar {
     width: 10px;
+    height: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -121,6 +161,12 @@ textarea {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color-primary-600);
+}
+
+/* Scrollbar para Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary-400) var(--color-gray-100);
 }
 
 /* Utility Classes */
@@ -147,7 +193,7 @@ textarea {
     }
 }
 
-/* Animations */
+/* Animations - Con soporte para reducción de movimiento */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -204,4 +250,61 @@ textarea {
 
 .animate-float {
     animation: float 3s ease-in-out infinite;
+}
+
+/* Respeta preferencias de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Mejoras de rendimiento para animaciones */
+.animate-fadeInUp,
+.animate-fadeIn,
+.animate-float {
+    will-change: transform, opacity;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    /* Optimizaciones solo para dispositivos con hover real */
+    a,
+    button {
+        transition: all var(--transition-fast);
+    }
+}
+
+/* Mejoras para impresión */
+@media print {
+    *,
+    *::before,
+    *::after {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    img {
+        page-break-inside: avoid;
+    }
+
+    h1,
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
 }

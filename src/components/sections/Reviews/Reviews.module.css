@@ -20,13 +20,15 @@
     height: 380px;
     width: 100%;
     perspective: 1000px;
+    -webkit-perspective: 1000px;
 }
 
 .slideWrapper {
     position: absolute;
     width: 100%;
-    max-width: 500px;
+    max-width: min(500px, 90%);
     transition: all 0.5s ease;
+    will-change: transform, opacity;
 }
 
 .position-1 {
@@ -129,6 +131,7 @@
     justify-content: center;
     flex-shrink: 0;
     z-index: 5;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .navButton:hover {
@@ -148,11 +151,14 @@
 .dot {
     width: 12px;
     height: 12px;
+    min-width: 12px;
+    min-height: 12px;
     background: rgba(255, 255, 255, 0.3);
     border: none;
     border-radius: var(--radius-full);
     cursor: pointer;
     transition: all var(--transition-fast);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .dot:hover {
@@ -164,7 +170,7 @@
     width: 30px;
 }
 
-/* Responsive */
+/* Responsive - Mejorado */
 @media (max-width: 1024px) {
     .carouselWrapper {
         padding: 0;
@@ -177,12 +183,14 @@
 
     .carousel {
         height: auto;
+        min-height: 360px;
         padding: var(--spacing-4) 0;
     }
 
     .slideWrapper {
         position: relative;
-        transform: none;
+        transform: none !important;
+        opacity: 1 !important;
         max-width: 100%;
     }
 
@@ -190,8 +198,8 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        width: 40px;
-        height: 40px;
+        width: 44px;
+        height: 44px;
         font-size: var(--font-size-base);
     }
 
@@ -201,5 +209,82 @@
 
     .nextButton {
         right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel {
+        min-height: 320px;
+    }
+    
+    .reviewCard {
+        margin: 0 var(--spacing-12);
+    }
+    
+    .navButton {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 640px) {
+    .reviewCard {
+        margin: 0 var(--spacing-10);
+    }
+    
+    .navButton {
+        width: 36px;
+        height: 36px;
+        font-size: var(--font-size-sm);
+    }
+    
+    .comment {
+        font-size: var(--font-size-base);
+    }
+}
+
+@media (max-width: 480px) {
+    .reviewCard {
+        margin: 0 var(--spacing-8);
+    }
+    
+    .reviewHeader {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .avatar {
+        width: 50px;
+        height: 50px;
+        font-size: var(--font-size-lg);
+    }
+    
+    .reviewerName {
+        font-size: var(--font-size-base);
+    }
+    
+    .rating {
+        justify-content: center;
+    }
+}
+
+/* Touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .navButton {
+        min-width: 48px;
+        min-height: 48px;
+    }
+    
+    .navButton:hover {
+        transform: translateY(-50%);
+    }
+    
+    .dot {
+        min-width: 16px;
+        min-height: 16px;
+    }
+    
+    .dotActive {
+        min-width: 32px;
     }
 }

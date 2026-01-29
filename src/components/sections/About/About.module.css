@@ -7,6 +7,7 @@
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-16);
     align-items: center;
+    color: var(--color-text-primary);
 }
 
 /* Image Section */
@@ -154,7 +155,7 @@
     color: var(--color-text-secondary);
 }
 
-/* Responsive */
+/* Responsive - Mejorado */
 @media (max-width: 1024px) {
     .wrapper {
         grid-template-columns: 1fr;
@@ -163,7 +164,7 @@
 
     .imageSection {
         order: -1;
-        max-width: 500px;
+        max-width: min(500px, 100%);
         margin: 0 auto;
     }
 
@@ -175,6 +176,16 @@
     .floatingCard2 {
         left: var(--spacing-2);
         top: var(--spacing-4);
+    }
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        gap: var(--spacing-8);
+    }
+    
+    .description p {
+        font-size: var(--font-size-base);
     }
 }
 
@@ -190,5 +201,24 @@
 
     .statValue {
         font-size: var(--font-size-2xl);
+    }
+    
+    .floatingCard,
+    .floatingCard2 {
+        position: static;
+        margin: var(--spacing-4) auto;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .floatingCard,
+    .floatingCard2 {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .statsGrid {
+        grid-template-columns: 1fr;
     }
 }

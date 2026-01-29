@@ -10,8 +10,8 @@ export const Hero = () => {
             {/* Background Image */}
             <div className={styles.backgroundImage}>
                 <img
-                    src="https://images.unsplash.com/photo-1474511320723-9a56873571b7?w=1920&q=80"
-                    alt="Fauna silvestre - Loro colorido"
+                    src="https://images.unsplash.com/photo-1567752881298-f2f84e1e7c0a?w=1920&q=80"
+                    alt="Fauna silvestre - Iguana en bosque"
                     className={styles.bgImg}
                 />
                 <div className={styles.imageOverlay}></div>

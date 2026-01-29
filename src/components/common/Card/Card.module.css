@@ -2,6 +2,7 @@
     background: var(--color-white);
     border-radius: var(--radius-xl);
     transition: all var(--transition-normal);
+    width: 100%;
 }
 
 /* Variants */
@@ -42,10 +43,35 @@
 
 @media (max-width: 768px) {
     .padding-md {
-        padding: var(--spacing-4);
+        padding: var(--spacing-5);
     }
 
     .padding-lg {
         padding: var(--spacing-6);
+    }
+}
+
+@media (max-width: 480px) {
+    .padding-sm {
+        padding: var(--spacing-3);
+    }
+
+    .padding-md {
+        padding: var(--spacing-4);
+    }
+
+    .padding-lg {
+        padding: var(--spacing-5);
+    }
+}
+
+/* Touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .hoverable:hover {
+        transform: none;
+    }
+    
+    .hoverable:active {
+        transform: translateY(-4px);
     }
 }

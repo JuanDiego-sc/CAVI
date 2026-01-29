@@ -1,17 +1,41 @@
 .container {
     width: 100%;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 var(--container-padding);
+    box-sizing: border-box;
 }
 
 .default {
-    max-width: var(--container-max-width);
+    max-width: min(1400px, 100%);
 }
 
 .narrow {
-    max-width: 900px;
+    max-width: min(900px, 100%);
 }
 
 .wide {
-    max-width: 1440px;
+    max-width: min(1440px, 100%);
+}
+
+@media (max-width: 1024px) {
+    .default {
+        max-width: min(1200px, 100%);
+    }
+    
+    .wide {
+        max-width: min(1280px, 100%);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-4);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 var(--spacing-3);
+    }
 }

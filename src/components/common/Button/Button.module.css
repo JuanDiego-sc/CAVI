@@ -11,6 +11,11 @@
     text-decoration: none;
     border: 2px solid transparent;
     white-space: nowrap;
+    -webkit-appearance: button;
+    appearance: button;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 /* Variants */
@@ -65,16 +70,19 @@
 .sm {
     padding: var(--spacing-2) var(--spacing-4);
     font-size: var(--font-size-sm);
+    min-height: 36px;
 }
 
 .md {
     padding: var(--spacing-3) var(--spacing-6);
     font-size: var(--font-size-base);
+    min-height: 44px;
 }
 
 .lg {
     padding: var(--spacing-4) var(--spacing-8);
     font-size: var(--font-size-lg);
+    min-height: 52px;
 }
 
 /* Full Width */
@@ -86,5 +94,34 @@
 .button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
-    transform: none;
+    transform: none !important;
+    pointer-events: none;
+}
+
+/* Touch devices - Sin hover effects */
+@media (hover: none) and (pointer: coarse) {
+    .button {
+        min-height: 48px;
+    }
+    
+    .primary:hover,
+    .secondary:hover,
+    .outline:hover {
+        transform: none;
+    }
+    
+    .primary:active,
+    .secondary:active,
+    .outline:active,
+    .ghost:active {
+        opacity: 0.8;
+    }
+}
+
+/* Responsive font sizes en móviles pequeños */
+@media (max-width: 480px) {
+    .lg {
+        font-size: var(--font-size-base);
+        padding: var(--spacing-3) var(--spacing-6);
+    }
 }

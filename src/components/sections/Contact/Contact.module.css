@@ -53,6 +53,9 @@
     color: var(--color-text-primary);
     background: var(--color-white);
     transition: all var(--transition-fast);
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
 }
 
 .input:focus {
@@ -68,6 +71,7 @@
 .textarea {
     resize: vertical;
     min-height: 120px;
+    font-family: inherit;
 }
 
 .successMessage {
@@ -209,10 +213,11 @@ a.infoValue:hover {
     background: rgba(255, 255, 255, 0.3);
 }
 
-/* Responsive */
+/* Responsive - Mejorado */
 @media (max-width: 1024px) {
     .wrapper {
         grid-template-columns: 1fr;
+        gap: var(--spacing-6);
     }
 
     .infoSection {
@@ -227,6 +232,13 @@ a.infoValue:hover {
     }
 }
 
+@media (max-width: 768px) {
+    .formRow {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-4);
+    }
+}
+
 @media (max-width: 640px) {
     .formRow {
         grid-template-columns: 1fr;
@@ -238,5 +250,36 @@ a.infoValue:hover {
 
     .emergencyCard {
         grid-column: span 1;
+    }
+    
+    .emergencyContent {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .formTitle {
+        font-size: var(--font-size-lg);
+    }
+    
+    .infoTitle {
+        font-size: var(--font-size-base);
+    }
+}
+
+/* Touch devices - áreas táctiles más grandes */
+@media (hover: none) and (pointer: coarse) {
+    .input,
+    .textarea {
+        min-height: 48px;
+        padding: var(--spacing-4);
+    }
+    
+    .emergencyPhone {
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
 }
